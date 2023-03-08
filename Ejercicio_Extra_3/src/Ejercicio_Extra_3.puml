@@ -1,0 +1,43 @@
+@startuml
+class Entidades.Cliente{
+--Atributos--
+-String nombre
+-String apellido
+-String documento
+-String mail
+-String domicilio
+-String telefono
+--Constructores--
+ 
+}
+
+class Entidades.Vehiculo{
+--Atributos--
+-String marca
+-String modelo
+-String anio
+-String numeroMotor
+-String chasis
+-String color
+-String tipo
+--Constructores--
+
+}
+
+class Entidades.Polizas{
+--Atributos--
+-String numeroPoliza
+-Date fechaInicio
+-Date findePoliza
+-int cantidadCuotas
+-String formaPago
+-float montoTotalAsegurado
+-boolean granizo
+-float montoMaximoGranizo
+-String tipoCobertura
+--Constructores--
+
+}
+
+
+@enduml
