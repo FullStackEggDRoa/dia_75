@@ -7,7 +7,10 @@ class Entidades.Cliente{
 -String mail
 -String domicilio
 -String telefono
+-ArrayList<Vehiculo> vehiculos
 --Constructores--
++Cliente()
+-- Métodos --
  
 }
 
@@ -20,11 +23,13 @@ class Entidades.Vehiculo{
 -String chasis
 -String color
 -String tipo
+-Poliza poliza
 --Constructores--
-
++Vehiculo()
+-- Métodos --
 }
 
-class Entidades.Polizas{
+class Entidades.Poliza{
 --Atributos--
 -String numeroPoliza
 -Date fechaInicio
@@ -35,9 +40,54 @@ class Entidades.Polizas{
 -boolean granizo
 -float montoMaximoGranizo
 -String tipoCobertura
+-ArrayList<Cuota> cuotas
 --Constructores--
++Poliza()
+-- Métodos --
 
 }
+class Entidades.Cuota{
+--Atributos--
+-int numeroCuota
+-float montoTotalCuota
+-boolean Pagado
+-Date fechaVencimiento
+-String formaPago
+--Constructores--
++Cuota()
+-- Métodos --
+}
 
+class Ejercicio_Extra_3{
+    +static void main(String[] args)
+}
+
+class Servicios.serviciosCliente{
+    +void crearCliente()
+}
+class Servicios.serviciosVehiculo{
+    +void crearVehiculo()
+}
+class Servicios.serviciosPoliza{
+    +void crearPoliza()
+}
+class Servicios.serviciosCuota{
+    +void crearCuota()
+}
+
+Ejercicio_Extra_3 ..> Entidades.Cliente
+Ejercicio_Extra_3 ..> Entidades.Vehiculo
+Ejercicio_Extra_3 ..> Entidades.Poliza
+Ejercicio_Extra_3 ..> Entidades.Cuota
+
+
+
+Entidades.Cliente <--* Servicios.serviciosCliente
+Entidades.Cliente "1" o-- "*" Entidades.Vehiculo
+Entidades.Vehiculo <--* Servicios.serviciosVehiculo
+Entidades.Vehiculo "1" *-- "1" Entidades.Poliza
+Entidades.Poliza <--* Servicios.serviciosPoliza
+Entidades.Poliza "1" *-- "*" Entidades.Cuota
+Entidades.Cuota <--* Servicios.serviciosCuota
 
 @enduml
